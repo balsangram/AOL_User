@@ -18,6 +18,13 @@ interface Advertisement {
   img: string;
 }
 
+interface RawAdvertisement {
+  [key: string]: {
+    link: string;
+    img: string;
+  };
+}
+
 const MyCarousel = () => {
   const [ads, setAds] = useState<Advertisement[]>([]);
 
@@ -28,7 +35,7 @@ const MyCarousel = () => {
         console.log(response.data.data, "response adv");
 
         if (response.data.data.length > 0) {
-          const adData = response.data.data[0]; // Get the first object
+          const adData: RawAdvertisement = response.data.data[0]; // Get the first object
           const extractedAds = Object.values(adData)
             .filter((item) => typeof item === "object" && item.img && item.link)
             .map((item) => ({

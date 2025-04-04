@@ -3,7 +3,7 @@ import PopupImg from "../../../public/assets/logo/AOL LOGO BANGALORE ASHRAM BLAC
 import CloseIcon from "@mui/icons-material/Close";
 
 function Popups() {
-  const [show, setShow] = useState("true");
+  const [show, setShow] = useState<boolean>(true);
   function clearPage() {
     setShow(!show);
   }
